@@ -38,52 +38,41 @@
 
     <!-- The About Us Section -->
     <div id="about-us" class="w3-container w3-content w3-center w3-padding-24" style="max-width:800px">
-        <h2 class="w3-wide">Travelfy</h2>
-        <p class="w3-opacity"><i>The sounds of where you are (or where you want to be)</i></p>
-        <p class="w3-justify"> Welcome to Travelfy, where you can listen to music that fits where you are.
-            Whether you're looking for some theme songs to highlight
-            your travel adventures or are just curious about the most popular music in Uzbekistan, you're
-            in the right place!</p>
+        <h2 class="w3-wide">FormFigure</h2>
+        <p class="w3-opacity"><i>Create and trade your own figure!</i></p>
+        <p class="w3-justify"> Description Here </p>
         <p class="w3-justify"> Check out our Where to Start section below for some famous locations, or take
             to the search bar or map search for your own musical journey.</p>
-    </div>
+        </div>
 
-    <!-- Search bar for countries -->
-    <table class="w3-centered" width="100%">
+
+    <br>
+    <br>
+    
+    <!-- Search for your name/ownership -->
+    <div class="">
+      <!-- Search bar for countries -->
+      <table class="w3-centered" width="100%">
         <tr>
-            <td><input class="w3-border w3-button" type="text" id="mySearch" onkeyup="searchList()" placeholder="Find a country..." title="Type in a category"></td>
+            <td><input class="w3-border w3-button" type="text" id="mySearch" onclick=search() placeholder="Type Your Name" title="Type in a category"></td>
         </tr>
-    </table>
+      </table>
+      <div id="searchResult">hide</div>
 
-    <!-- List of countries -->
-    <ul id="cityList">
-        {%for i in list1%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list2%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list3%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list4%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list5%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list6%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-        {%for i in list7%}
-        <li class="w3-button w3-text-white w3-bottombar w3-topbar w3-border-white" style="background-color:rgb(98, 124, 208)"><a href= {{base_url}}{{i}} style="text-decoration:none;">{{i}}</a></li>
-        {%endfor%}
-    </ul>
+      <button onclick="toggle_display()">Toggle display</button>
 
-    <br>
-    <br>
+      <div class="content_section">See me no more</div>
+    
+    <!-- Display your figure -->
+    <script>
 
-
+      function search() {
+        //currSearch = getElementById("mySearch")
+        var a = document.getElementById('searchResult');
+        a.style.display = "none";
+      }
+    </script>
+    
     <!-- Where to Start section -->
     <div class="w3-black" id="start">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
@@ -127,70 +116,8 @@
 
 
 
-    <!-- Search city list -->
-  <script>
-    function searchList() {
-      // Search through the list of cities
-      // Declare variables
-      var input, filter, ul, li, a, i;
-      input = document.getElementById("mySearch");
-      filter = input.value.toUpperCase();
-      ul = document.getElementById("cityList");
-      li = ul.getElementsByTagName("li");
 
-      // Loop through all list items, and hide those who don't match the search query
-      for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-          li[i].style.display = "";
-        } else {
-          li[i].style.display = "none";
-        }
-      }
-    }
-    </script>
-
-    <table>
-      <tr>
-        <td><h2>Search using the map</h2></td>
-        <td class="w3-text-white">--------</td>
-        <td><button class="w3-button w3-green"><a id="music-link" href="" style="text-decoration:none"></a></button></td>
-      </tr>
-    </table>
-
-    <!-- Display google map-->
-    <div id="map"></div>
-
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy4rMsW8E0G5S7kJAH6rgXOPOl6MizZsw&callback=initMap&libraries=&v=weekly" async></script>
-
-    <!-- https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCy4rMsW8E0G5S7kJAH6rgXOPOl6MizZsw -->
-    <!-- The Contact Section -->
-    <!--
-  <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-    <h2 class="w3-wide w3-center">GET IN TOUCH!</h2>
-    <p class="w3-opacity w3-center"><i>Questions? Comments? Suggestions? Let us know what you think!</i></p>
-    <div class="w3-row w3-padding-32">
-      <div class="w3-col m6 w3-large w3-margin-bottom">
-        <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com<br>
-      </div>
-      <div class="w3-col m6">
-        <form action="/action_page.php" target="_blank">
-          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-            </div>
-            <div class="w3-half">
-              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-            </div>
-          </div>
-          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-          <button class="w3-button w3-green w3-section w3-right" type="submit">SEND</button>
-        </form>
-      </div>
-    </div>
   </div>
-  -->
-  <div><br></div>
+   
 </body>
 </html>
