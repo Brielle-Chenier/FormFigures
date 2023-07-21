@@ -38,11 +38,11 @@
 
     <!-- The About Us Section -->
     <div id="about-us" class="w3-container w3-content w3-center w3-padding-24" style="max-width:800px">
-        <h2 class="w3-wide">FormFigure</h2>
+        <h2 class="w3-wide">FormFigures</h2>
         <p class="w3-opacity"><i>Create and trade your own figure!</i></p>
-        <p class="w3-justify"> Description Here </p>
-        <p class="w3-justify"> Check out our Where to Start section below for some famous locations, or take
-            to the search bar or map search for your own musical journey.</p>
+        <p class="w3-justify"> What is a FormFigure? <br>
+          FormFigure is your very own character that you can print and trade with others! Your FormFigure can be anything you want - animal, car, food, mineral?, etc... All the FormFigures and their stats will be tracked online [here] if you want to see what others have made!</p>
+        <p class="w3-justify"> Type in your name below to see your collection!</p>
         </div>
 
 
@@ -54,62 +54,45 @@
       <!-- Search bar for countries -->
       <table class="w3-centered" width="100%">
         <tr>
-            <td><input class="w3-border w3-button" type="text" id="mySearch" onclick=search() placeholder="Type Your Name" title="Type in a category"></td>
-        </tr>
+            <td><input class="w3-border w3-button" type="text" id="mySearch" placeholder="Type Your Name" title="Type in a category"></td>
+          </tr>
       </table>
-      <div id="searchResult">hide</div>
 
-      <button onclick="toggle_display()">Toggle display</button>
-
-      <div class="content_section">See me no more</div>
-    
+      <button onclick=toggleSearch()>Search</button>
+      <div>
+        Your Name: 
+        <span id="name"></span>
+        
+      </div>
+      
     <!-- Display your figure -->
     <script>
 
-      function search() {
+      function toggleSearch() {
         //currSearch = getElementById("mySearch")
-        var a = document.getElementById('searchResult');
-        a.style.display = "none";
+        var input = document.getElementById('mySearch').value;
+        document.getElementById('name').innerHTML = input;
       }
     </script>
     
     <!-- Where to Start section -->
     <div class="w3-black" id="start">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-      <h2 class="w3-wide w3-center">WHERE TO START</h2>
-      <p class="w3-opacity w3-center"><i>Try out some of these well-known locations!</i></p><br>
+      <h2 class="w3-wide w3-center">Your Collection</h2>
+      <p class="w3-opacity w3-center"><i>Check Out All Your FormFigures</i></p><br>
 
-      <div class="w3-row-padding w3-padding-2" style="margin:0 -20px">
+      <div id= "figureDisplaySpace" class="w3-row-padding w3-padding-2" style="margin:0 -10px">
         <div class="w3-third w3-margin-bottom">
-          <img src="/static/panama.jpg" alt="Panama" style="width:100%" class="w3-hover-opacity">
+          <img src="/static/dartDaFrog.png" alt="Panama" style="width:100%" class="w3-hover-opacity">
           <div class="w3-container w3-white">
-            <p><b>Panama</b></p>
-            <p class="w3-opacity">Panama City, Panama</p>
-            <p>Listen to some music from the only place where you can see the sun rise on the Pacific and set on the Atlantic!</p>
-            <p>Fun fact: Panama was the first coutry outside of the US to sell Coca-Cola.</p>
-            <button class="w3-button w3-text-white w3-margin-bottom" style="background-color:rgb(239, 71, 111)"><a href="http://127.0.0.1:5000/Panama">Listen Now</a></button>
+            <p><b>Frog Name</b></p>
+            <p class="w3-opacity">Owner: Brielle Chenier</p>
+            <p>Date Printed: </p>
+            <p># of Figures:</p>
+            <button class="w3-button w3-text-white w3-margin-bottom" style="background-color:rgb(239, 71, 111)"><a href="https://www.notion.so/178d9d0c50894893bc8ebecb95b5990c?v=5ddde725f46346c9a29a14ceb5cee61f&p=4070428be3dd448095e542eb828442ee&pm=c">Learn More</a></button>
           </div>
         </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="/static/paris1.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Paris</b></p>
-            <p class="w3-opacity">Paris, France</p>
-            <p class="w3-opacity"></p>
-            <p>Home to the beloved Eiffel Tower and baguettes! Click below to hear some of the most popular French artists.</p>
-            <button class="w3-button w3-text-white w3-margin-bottom" style="background-color:rgb(239, 71, 111)"><a href="http://127.0.0.1:5000/France">Listen Now</a></button>
-          </div>
-        </div>
-        <div class="w3-third w3-margin-bottom">
-          <img src="/static/romania.jpg" alt="Romania" style="width:100%" class="w3-hover-opacity">
-          <div class="w3-container w3-white">
-            <p><b>Romania</b></p>
-            <p class="w3-opacity">Fagaras, Romania</p>
-            <p>Pictured above is one of the most beautiful driving roads. </p>
-            <p>Romania is also home to the world's largest population of brown bears.</p>
-            <button class="w3-button w3-text-white w3-margin-bottom" style="background-color:rgb(239, 71, 111)"><a href="http://127.0.0.1:5000/Romania">Listen Now</a></button>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>
